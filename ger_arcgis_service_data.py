@@ -1,3 +1,11 @@
+"""
+
+Interact with ArcGIS Server's URL and fetch a particular record from that.
+
+"""
+
+
+
 import requests
 import json
 import sys
@@ -15,10 +23,16 @@ URL = "https://services9.arcgis.com/wueYtvO9SJNklLr0/ArcGIS/rest/services/Conces
       "returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&" \
       "sqlFormat=none&f=json&token="
 
-
+#field for which the data to be returned
 out_field='NOME'
 
 def main(geom):
+    """
+
+    Main function, that is executed when the script is run.
+
+    
+    """
     response = requests.get(URL.replace("$$1",str(geom)))
     resp_text= response.text
 
